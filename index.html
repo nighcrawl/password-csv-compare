@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mobile‑first web app to compare Dashlane and Apple password exports and generate a clean CSV ready for import."
+    />
+    <!-- PWA manifest -->
+    <link rel="manifest" href="manifest.json" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Password CSV Compare</title>
+  </head>
+  <body>
+    <header class="app-header">
+      <h1 id="app-title">Password CSV Compare</h1>
+      <div class="controls">
+        <div class="lang-toggle">
+          <!-- The text of this button will be set by JS -->
+          <button id="toggle-lang" aria-label="Toggle language"></button>
+        </div>
+        <div class="strict-toggle">
+          <label for="strict-toggle" id="strict-label"></label>
+          <input type="checkbox" id="strict-toggle" />
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="upload-section" class="upload-section">
+        <div class="upload-container">
+          <label for="dashlane-file" id="dashlane-label"></label>
+          <input type="file" id="dashlane-file" accept=".csv" />
+        </div>
+        <div class="upload-container">
+          <label for="apple-file" id="apple-label"></label>
+          <input type="file" id="apple-file" accept=".csv" />
+        </div>
+      </section>
+      <section id="compare-section" class="compare-section">
+        <button id="compare-btn" disabled></button>
+      </section>
+      <section id="summary-section" class="summary-section hidden">
+        <p id="summary-dash"></p>
+        <p id="summary-apple"></p>
+        <p id="summary-missing"></p>
+      </section>
+      <section id="preview-section" class="preview-section hidden">
+        <h2 id="preview-title"></h2>
+        <div id="table-container" class="table-container" tabindex="0"></div>
+      </section>
+      <section id="export-section" class="export-section hidden">
+        <button id="export-btn"></button>
+      </section>
+      <p id="privacy-msg" class="privacy-msg"></p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
